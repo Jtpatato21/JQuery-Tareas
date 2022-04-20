@@ -2,7 +2,8 @@ var listaEstados = ['Aguascalientes', 'Baja California', 'Baja California Sur',
     'Campeche', 'Coahuila', 'Colima', 'Chiapas', 'Chihuahua', 'Distrito Federal', 'Durango', 'Guanajuato ',
     'Guerrero', 'Hidalgo', 'Jalisco', 'Michoacán', 'Estado de México', 'Morelos', 'Nayarit', 'Nuevo León',
     'Oaxaca', 'Puebla', 'Quintana Roo', 'Querétaro', 'San Luis Potosí', 'Sinaloa', 'Sonora', 'Tabasco', 'Tlaxcala',
-    'Tamaulipas', 'Veracruz', 'Yucatán', 'Zacatecas'];
+    'Tamaulipas', 'Veracruz', 'Yucatán', 'Zacatecas'
+];
 var usuariosRegistrados = ['amorales', 'cfuentes', 'dcarrillo', 'elopez', 'fdominguez', 'hmarquez', 'mzamudio', 'pcontreras', 'rsanchez', 'shernandez'];
 var dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 var meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -145,10 +146,28 @@ $(function () {
 
 
     $("#ejercicio15_accion").click(function () {
-        $('#marcalos').each(function (index, element) {
-            console.log(element.textContent + " - " + index);
+        $('#marcalos').find('input[type=text]').each(function (index, element) {
+            if ($.isNumeric(element.value)) {
+                $(element).css({
+                    'border': '3px solid green',
+                });
+            } else {
+                $(element).css({
+                    'border': '3px solid red',
+                });
+            }
+
         });
-     });
+    });
+
+    $("#ejercicio16_accion").click(function () {
+        $('#sumas > tbody').children().each(function (index, element) {
+            //console.log(this.children[0].textContent + " + " + this.children[1].textContent + " = " + (parseInt(this.children[2].textContent) + parseInt(this.children[1].textContent)));
+            console.log(this.children[0].textContent + " - " + this.children[2].textContent);
+            console.log(index+ " - " + element.textContent );
+        });
+        //alert('Hola');
+    });
 
 
 });
