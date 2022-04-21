@@ -1,2 +1,2 @@
 # JQuery_tareas
- JQuery tareas de la UCC
+ JQuery tareas de UCC
